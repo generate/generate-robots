@@ -1,6 +1,6 @@
 {
   "name": "generate-robots",
-  "description": "Generate a robots.txt for a web project.",
+  "description": "Generate a robots.txt for a web project (uses the robots.txt from HTML5 Boilerplate). This can be run from the command line when Generate is installed globally, or used as a plugin in another generator.",
   "version": "0.1.0",
   "homepage": "https://github.com/generate/generate-robots",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -28,9 +28,37 @@
   "devDependencies": {
     "delete": "^0.3.2",
     "generate": "^0.11.2",
+    "gulp-format-md": "^0.1.10",
+    "mocha": "^3.0.2",
     "npm-install-global": "^0.1.2"
   },
   "dependencies": {
     "is-valid-app": "^0.2.0"
+  },
+  "verb": {
+    "toc": false,
+    "layout": "generator",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "generate-license",
+        "generate-gitignore",
+        "generate-eslint"
+      ]
+    },
+    "reflinks": [
+      "assemble",
+      "base",
+      "generate",
+      "gulp"
+    ],
+    "lint": {
+      "reflinks": true
+    }
   }
 }

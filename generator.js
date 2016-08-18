@@ -7,7 +7,7 @@ module.exports = function(app) {
   if (!isValid(app, 'generate-robots')) return;
 
   /**
-   * Generates a `robots` file to the current working directory or
+   * Generates a `robots.txt` file to the current working directory or
    * specified `--dest`.
    *
    * ```sh
@@ -20,10 +20,10 @@ module.exports = function(app) {
 
   app.task('default', ['robots']);
   app.task('robots', function(cb) {
-    return app.src('templates/robots', { cwd: __dirname })
+    return app.src('templates/robots.tmpl', { cwd: __dirname })
       .pipe(app.conflicts(app.cwd))
       .pipe(app.dest(function(file) {
-        file.basename = 'robots';
+        file.basename = 'robots.txt';
         return app.cwd;
       }))
   });

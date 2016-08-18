@@ -11,6 +11,7 @@ var pkg = require('../package');
 var generator = require('..');
 var app;
 
+var isTravis = process.env.CI || process.env.TRAVIS;
 var fixtures = path.resolve.bind(path, __dirname, 'fixtures');
 var actual = path.resolve.bind(path, __dirname, 'actual');
 
@@ -30,7 +31,7 @@ function exists(name, cb) {
 describe('generate-robots', function() {
   this.slow(250);
 
-  if (!process.env.CI && !process.env.TRAVIS) {
+  if (!isTravis) {
     before(function(cb) {
       npm.maybeInstall('generate', cb);
     });
@@ -74,19 +75,25 @@ describe('generate-robots', function() {
     });
   });
 
-  if (!process.env.CI && !process.env.TRAVIS) {
-    describe('robots (CLI)', function() {
-      it('should run the default task using the `generate-robots` name', function(cb) {
-        app.use(generator);
-        app.generate('generate-robots', exists('robots.txt', cb));
-      });
-
-      it('should run the default task using the `generator` generator alias', function(cb) {
-        app.use(generator);
-        app.generate('robots', exists('robots.txt', cb));
-      });
+  describe('robots (CLI)', function() {
+    it('should run the default task using the `generate-robots` name', function(cb) {
+      if (isTravis) {
+        this.skip();
+        return;
+      }
+      app.use(generator);
+      app.generate('generate-robots', exists('robots.txt', cb));
     });
-  }
+
+    it('should run the default task using the `generator` generator alias', function(cb) {
+      if (isTravis) {
+        this.skip();
+        return;
+      }
+      app.use(generator);
+      app.generate('robots', exists('robots.txt', cb));
+    });
+  });
 
   describe('robots (API)', function() {
     it('should run the default task on the generator', function(cb) {
@@ -138,22 +145,8 @@ describe('generate-robots', function() {
       app
         .register('foo', generator)
         .register('bar', generator)
-        .register('baz', generator)
-
+        .register('baz', generator);
       app.generate('foo.bar.baz', exists('robots.txt', cb));
-    });
-
-    it('should run tasks as a sub-generator', function(cb) {
-      app = generate({silent: true, cli: true});
-
-      app.generator('foo', function(sub) {
-        sub.register('robots', require('..'));
-        sub.generate('robots:unit-test', function(err) {
-          if (err) return cb(err);
-          assert.equal(app.base.get('cache.unit-test'), true);
-          cb();
-        });
-      });
     });
   });
 });
