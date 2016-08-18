@@ -1,0 +1,36 @@
+{
+  "name": "generate-robots",
+  "description": "Generate a robots.txt for a web project.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/generate/generate-robots",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "generate/generate-robots",
+  "bugs": {
+    "url": "https://github.com/generate/generate-robots/issues"
+  },
+  "license": "Released under the MIT license.",
+  "files": [
+    "generator.js",
+    "index.js",
+    "LICENSE"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "generate",
+    "robots"
+  ],
+  "devDependencies": {
+    "delete": "^0.3.2",
+    "generate": "^0.11.2",
+    "npm-install-global": "^0.1.2"
+  },
+  "dependencies": {
+    "is-valid-app": "^0.2.0"
+  }
+}
