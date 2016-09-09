@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/generate/generate-robots/issues"
   },
-  "license": "Released under the MIT license.",
+  "license": "MIT",
   "files": [
     "generator.js",
     "index.js",
