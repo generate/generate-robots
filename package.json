@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "homepage": "https://github.com/generate/generate-robots",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "contributors": [
+    "Dawson Botsford <dawsonbotsford@gmail.com> (http://dawsonbotsford.com)",
+    "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)"
+  ],
   "repository": "generate/generate-robots",
   "bugs": {
     "url": "https://github.com/generate/generate-robots/issues"
@@ -12,7 +16,7 @@
   "files": [
     "generator.js",
     "index.js",
-    "LICENSE"
+    "templates"
   ],
   "main": "index.js",
   "engines": {
@@ -21,10 +25,9 @@
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [
-    "generate",
-    "robots"
-  ],
+  "dependencies": {
+    "is-valid-app": "^0.2.0"
+  },
   "devDependencies": {
     "delete": "^0.3.2",
     "generate": "^0.11.2",
@@ -32,9 +35,40 @@
     "mocha": "^3.0.2",
     "npm-install-global": "^0.1.2"
   },
-  "dependencies": {
-    "is-valid-app": "^0.2.0"
-  },
+  "keywords": [
+    "boilerplate",
+    "build",
+    "cli",
+    "cli-app",
+    "command-line",
+    "create",
+    "dev",
+    "development",
+    "framework",
+    "front",
+    "frontend",
+    "generate",
+    "generate-generator",
+    "generate-plugin",
+    "generategenerator",
+    "generateplugin",
+    "generator",
+    "init",
+    "initialize",
+    "new",
+    "plugin",
+    "project",
+    "projects",
+    "robots",
+    "scaffold",
+    "scaffolder",
+    "scaffolding",
+    "template",
+    "templates",
+    "webapp",
+    "yeoman",
+    "yo"
+  ],
   "verb": {
     "toc": false,
     "layout": "generator",
@@ -46,9 +80,9 @@
     ],
     "related": {
       "list": [
-        "generate-license",
+        "generate-eslint",
         "generate-gitignore",
-        "generate-eslint"
+        "generate-license"
       ]
     },
     "reflinks": [
