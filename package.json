@@ -1,7 +1,7 @@
 {
   "name": "generate-robots",
   "description": "Generate a robots.txt for a web project (uses the robots.txt from HTML5 Boilerplate). This can be run from the command line when Generate is installed globally, or used as a plugin in another generator.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/generate/generate-robots",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
